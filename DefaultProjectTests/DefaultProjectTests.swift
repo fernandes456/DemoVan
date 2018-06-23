@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import DefaultProject
+import CoreLocation
 
 class DefaultProjectTests: XCTestCase {
     
@@ -21,16 +22,13 @@ class DefaultProjectTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testURLMaker() {
+        let maker = RouterURLMaker()
+        let originLocation = CLLocation(latitude: -12.34, longitude: -56.78)
+        let destinationLocation = CLLocation(latitude: 90.123, longitude: 46.69)
+        
+        XCTAssertEqual(maker.getURL(originLocation: originLocation, destinationLocation: destinationLocation),
+                       "https://maps.googleapis.com/maps/api/directions/json?origin=-12.34,-56.78&destination=90.123,46.69&key=AIzaSyBnrySnXSIxxLuk_4ctIrVNymp0eDDhQPc")
     }
     
 }

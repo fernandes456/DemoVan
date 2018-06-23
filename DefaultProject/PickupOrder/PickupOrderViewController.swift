@@ -11,14 +11,22 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 
+protocol PickupViewControllerType: class {
+    func showOrder(_ viewModel: PickupOrderViewModel)
+    var map: GMSMapView { get }
+    func centerMap(location: CLLocation)
+    func showPoyline(polyline: GMSPolyline)
+}
+
 class PickupViewController: UIViewController {
     
+    @IBOutlet weak var pickupUntilLabel: UILabel!
+    @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var orderLabel: UILabel!
     var presenter: PickupPresenter!
     @IBOutlet weak var bottomOrderDetailConstraint: NSLayoutConstraint!
     @IBOutlet weak var orderDetailHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var mapView: GMSMapView!
-    var locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +34,6 @@ class PickupViewController: UIViewController {
         self.presenter = PickupPresenter(delegate: self)
         self.mapView.isMyLocationEnabled = true
         self.bottomOrderDetailConstraint.constant = self.orderDetailHeightConstraint.constant
-        
-        self.locationManager.delegate = self
-        self.locationManager.startUpdatingLocation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,11 +51,15 @@ class PickupViewController: UIViewController {
 }
 
 extension PickupViewController: PickupViewControllerType {
+
     var map: GMSMapView {
         return self.mapView
     }
     
-    func showOrder(_ pickupOrder: PickupOrder) {
+    func showOrder(_ viewModel: PickupOrderViewModel) {
+        self.orderLabel.text = viewModel.orderID
+        self.placeLabel.text = viewModel.address
+        self.pickupUntilLabel.text = viewModel.pickupUntil
         UIView.animate(withDuration: 0.4) {
             self.bottomOrderDetailConstraint.constant = 0
         }
@@ -61,17 +70,16 @@ extension PickupViewController: PickupViewControllerType {
             self.bottomOrderDetailConstraint.constant = self.orderDetailHeightConstraint.constant
         }
     }
-}
-
-extension PickupViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        let location = locations.last
-        
-        let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude: (location?.coordinate.longitude)!, zoom: 17.0)
+    
+    func centerMap(location: CLLocation) {
+        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
+                                              longitude: location.coordinate.longitude,
+                                              zoom: 17.0)
         
         self.mapView.animate(to: camera)
-        
-        self.locationManager.stopUpdatingLocation()
+    }
+    
+    func showPoyline(polyline: GMSPolyline) {
+        polyline.map = self.mapView   
     }
 }

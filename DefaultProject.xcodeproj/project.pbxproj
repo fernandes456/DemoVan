@@ -20,6 +20,8 @@
 		8AA791BF20DE975900B881FB /* PickupOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA791BE20DE975900B881FB /* PickupOrder.swift */; };
 		8AA791C220DEAC9A00B881FB /* RouterURLMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA791C120DEAC9A00B881FB /* RouterURLMaker.swift */; };
 		8AA791C420DEAD4100B881FB /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA791C320DEAD4000B881FB /* Keys.swift */; };
+		8AA791C620DEB10E00B881FB /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA791C520DEB10E00B881FB /* LocationService.swift */; };
+		8AA791C820DEB9E000B881FB /* PickupOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA791C720DEB9E000B881FB /* PickupOrderViewModel.swift */; };
 		8AEEA6A120DE80EA009356DE /* PickupOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEEA6A020DE80EA009356DE /* PickupOrderViewController.swift */; };
 		8AEEA6A320DE80FA009356DE /* PickupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEEA6A220DE80FA009356DE /* PickupPresenter.swift */; };
 		8AEEA6A520DE8110009356DE /* PickupRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEEA6A420DE8110009356DE /* PickupRepository.swift */; };
@@ -55,6 +57,8 @@
 		8AA791C020DE9BE900B881FB /* 99Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = 99Location.gpx; sourceTree = "<group>"; };
 		8AA791C120DEAC9A00B881FB /* RouterURLMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterURLMaker.swift; sourceTree = "<group>"; };
 		8AA791C320DEAD4000B881FB /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		8AA791C520DEB10E00B881FB /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		8AA791C720DEB9E000B881FB /* PickupOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupOrderViewModel.swift; sourceTree = "<group>"; };
 		8AEEA6A020DE80EA009356DE /* PickupOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupOrderViewController.swift; sourceTree = "<group>"; };
 		8AEEA6A220DE80FA009356DE /* PickupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupPresenter.swift; sourceTree = "<group>"; };
 		8AEEA6A420DE8110009356DE /* PickupRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupRepository.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 				8A89CE4F20DDA5C400003E3A /* DefaultNetwork.swift */,
 				8AA791C020DE9BE900B881FB /* 99Location.gpx */,
 				8AA791C320DEAD4000B881FB /* Keys.swift */,
+				8AA791C520DEB10E00B881FB /* LocationService.swift */,
 			);
 			path = DefaultProject;
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 				8AEEA6A620DE88C7009356DE /* PickupDetailView.swift */,
 				8AA791BE20DE975900B881FB /* PickupOrder.swift */,
 				8AA791C120DEAC9A00B881FB /* RouterURLMaker.swift */,
+				8AA791C720DEB9E000B881FB /* PickupOrderViewModel.swift */,
 			);
 			path = PickupOrder;
 			sourceTree = "<group>";
@@ -336,12 +342,14 @@
 				8A89CE5020DDA5C400003E3A /* DefaultNetwork.swift in Sources */,
 				8AEEA6A720DE88C7009356DE /* PickupDetailView.swift in Sources */,
 				8AA791BF20DE975900B881FB /* PickupOrder.swift in Sources */,
+				8AA791C820DEB9E000B881FB /* PickupOrderViewModel.swift in Sources */,
 				8AA791C420DEAD4100B881FB /* Keys.swift in Sources */,
 				8AEEA6A120DE80EA009356DE /* PickupOrderViewController.swift in Sources */,
 				8AA791C220DEAC9A00B881FB /* RouterURLMaker.swift in Sources */,
 				8A89CE3320DDA47E00003E3A /* DefaultProject.xcdatamodeld in Sources */,
 				8AEEA6A520DE8110009356DE /* PickupRepository.swift in Sources */,
 				8A89CE2B20DDA47E00003E3A /* AppDelegate.swift in Sources */,
+				8AA791C620DEB10E00B881FB /* LocationService.swift in Sources */,
 				8A89CE4E20DDA58600003E3A /* DefaultRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

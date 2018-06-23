@@ -13,12 +13,16 @@ import GoogleMaps
 protocol PickupPresenterType {
     func start()
     func stop()
+    func acceptOrder()
+    func declineOrder()
+    func pickUpNewOrder()
 }
 
-struct PickupPresenter: PickupPresenterType {
+class PickupPresenter: PickupPresenterType {
     weak var delegate: PickupViewControllerType?
-    let repository: PickupRepository
-    let locationService: LocationService
+    let repository: PickupRepositoryType
+    let locationService: LocationServiceType
+    var currentOrder: PickupOrder?
     
     init(delegate: PickupViewControllerType) {
         self.delegate = delegate
@@ -29,17 +33,32 @@ struct PickupPresenter: PickupPresenterType {
     func start() {
         self.locationService.delegate = self
         self.locationService.start()
+    }
+    
+    func stop() {
+    }
+    
+    func acceptOrder() {
+        if let id = self.currentOrder?.id {
+            self.repository.acceptOrder(id: id)
+        }
+    }
+    
+    func declineOrder() {
+        if let id = self.currentOrder?.id {
+            self.repository.declineOrder(id: id)
+        }
+    }
+    
+    func pickUpNewOrder() {
         self.repository.startMonitoringOrder { (pickupOrder) in
+            self.currentOrder = pickupOrder
             self.locationService.fetchMapData(destinationLocation: pickupOrder.location)
             self.locationService.getAddress(coor: pickupOrder.location, currentAdd: { (address) in
                 let viewModel = PickupOrderViewModel(id: pickupOrder.id, address: address)
                 self.delegate?.showOrder(viewModel)
             })
         }
-    }
-    
-    func stop() {
-//        self.repository.stopMonitoringOrder()
     }
 }
 

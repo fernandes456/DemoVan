@@ -16,22 +16,3 @@ struct PickupOrder {
     let totalAmount: Int
     let change: Int
 }
-/*
- [11:59, 6/23/2018] Rodrigo Henriques: data class Order(
- let id: String,
- let consumerName: String,
- let location: LatLng,
- let items: List<OrderItem>,
- let totalAmount: Int,
- let change: Int
- )
- [11:59, 6/23/2018] Rodrigo Henriques: data class LatLng(
- let lat: Double,
- let lng: Double
- )
- [11:59, 6/23/2018] Rodrigo Henriques: data class OrderItem(
- let name: String,
- let quantity: Int,
- let price: Int
- )
- */

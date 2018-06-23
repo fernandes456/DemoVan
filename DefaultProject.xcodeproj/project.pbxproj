@@ -25,7 +25,6 @@
 		8AEEA6A120DE80EA009356DE /* PickupOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEEA6A020DE80EA009356DE /* PickupOrderViewController.swift */; };
 		8AEEA6A320DE80FA009356DE /* PickupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEEA6A220DE80FA009356DE /* PickupPresenter.swift */; };
 		8AEEA6A520DE8110009356DE /* PickupRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEEA6A420DE8110009356DE /* PickupRepository.swift */; };
-		8AEEA6A720DE88C7009356DE /* PickupDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEEA6A620DE88C7009356DE /* PickupDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +61,6 @@
 		8AEEA6A020DE80EA009356DE /* PickupOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupOrderViewController.swift; sourceTree = "<group>"; };
 		8AEEA6A220DE80FA009356DE /* PickupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupPresenter.swift; sourceTree = "<group>"; };
 		8AEEA6A420DE8110009356DE /* PickupRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupRepository.swift; sourceTree = "<group>"; };
-		8AEEA6A620DE88C7009356DE /* PickupDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupDetailView.swift; sourceTree = "<group>"; };
 		8C7A7E25807BBCDC63770328 /* Pods-DefaultProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DefaultProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DefaultProjectTests/Pods-DefaultProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		950B10BDB14EB23877CB017C /* Pods-DefaultProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DefaultProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-DefaultProject/Pods-DefaultProject.release.xcconfig"; sourceTree = "<group>"; };
 		BE4B17D07E3A1CE22C795945 /* libPods-DefaultProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DefaultProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,7 +161,6 @@
 				8AEEA6A020DE80EA009356DE /* PickupOrderViewController.swift */,
 				8AEEA6A220DE80FA009356DE /* PickupPresenter.swift */,
 				8AEEA6A420DE8110009356DE /* PickupRepository.swift */,
-				8AEEA6A620DE88C7009356DE /* PickupDetailView.swift */,
 				8AA791BE20DE975900B881FB /* PickupOrder.swift */,
 				8AA791C120DEAC9A00B881FB /* RouterURLMaker.swift */,
 				8AA791C720DEB9E000B881FB /* PickupOrderViewModel.swift */,
@@ -340,7 +337,6 @@
 			files = (
 				8AEEA6A320DE80FA009356DE /* PickupPresenter.swift in Sources */,
 				8A89CE5020DDA5C400003E3A /* DefaultNetwork.swift in Sources */,
-				8AEEA6A720DE88C7009356DE /* PickupDetailView.swift in Sources */,
 				8AA791BF20DE975900B881FB /* PickupOrder.swift in Sources */,
 				8AA791C820DEB9E000B881FB /* PickupOrderViewModel.swift in Sources */,
 				8AA791C420DEAD4100B881FB /* Keys.swift in Sources */,

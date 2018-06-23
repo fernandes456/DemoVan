@@ -23,10 +23,13 @@ class PickupViewController: UIViewController {
     @IBOutlet weak var pickupUntilLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var orderLabel: UILabel!
-    var presenter: PickupPresenter!
+    var presenter: PickupPresenterType!
     @IBOutlet weak var bottomOrderDetailConstraint: NSLayoutConstraint!
     @IBOutlet weak var orderDetailHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var debugButton: UIButton!
+    @IBOutlet weak var bottomCompleteButtonConstraint: NSLayoutConstraint!
+    @IBOutlet weak var completeButtonHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +45,25 @@ class PickupViewController: UIViewController {
     }
     
     @IBAction func acceptOrder() {
-        self.hideOrder()
+        self.presenter.acceptOrder()
+        self.hideOrder {
+            self.showCompleteButton()
+        }
     }
     
     @IBAction func declineOrder() {
+        self.presenter.declineOrder()
+        self.mapView.clear()
         self.hideOrder()
+    }
+    
+    @IBAction func completeOrder() {
+        self.hideCompleteButton()
+        self.mapView.clear()
+    }
+
+    @IBAction func debugTouched() {
+        self.presenter.pickUpNewOrder()
     }
 }
 
@@ -60,14 +77,32 @@ extension PickupViewController: PickupViewControllerType {
         self.orderLabel.text = viewModel.orderID
         self.placeLabel.text = viewModel.address
         self.pickupUntilLabel.text = viewModel.pickupUntil
+        self.bottomOrderDetailConstraint.constant = 0
         UIView.animate(withDuration: 0.4) {
-            self.bottomOrderDetailConstraint.constant = 0
+            self.view.layoutIfNeeded()
         }
     }
     
-    private func hideOrder() {
+    private func hideOrder(completion:(() -> Void)? = nil) {
+        self.bottomOrderDetailConstraint.constant = self.orderDetailHeightConstraint.constant
+        UIView.animate(withDuration: 0.4, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: { (completed) in
+            completion?()
+        })
+    }
+    
+    private func showCompleteButton() {
+        self.bottomCompleteButtonConstraint.constant = self.completeButtonHeightConstraint.constant
         UIView.animate(withDuration: 0.4) {
-            self.bottomOrderDetailConstraint.constant = self.orderDetailHeightConstraint.constant
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    private func hideCompleteButton() {
+        self.bottomCompleteButtonConstraint.constant = -self.completeButtonHeightConstraint.constant
+        UIView.animate(withDuration: 0.4) {
+            self.view.layoutIfNeeded()
         }
     }
     
